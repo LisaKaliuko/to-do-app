@@ -19,5 +19,6 @@
     "noImplicitAny": true, // doesnt allow type any
     "strictFunctionTypes": true // check function types strictly
   },
-  "include": ["src"] // files for compile
+  "include": ["src"], // files for compile
+  "exclude": ["node_modules"] // files to avoid
 }
