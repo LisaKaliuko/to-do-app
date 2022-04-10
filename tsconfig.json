@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es2019", // version of ECMAScript the code will be compiled into
+    "module": "es2015", // module system import/export
+    "moduleResolution": "node", // usually node
+    "lib": ["dom", "dom.iterable"], // add functionality
+    "outDir": "build", // create folder for build
+    "allowJs": false, // true allows js files in project
+    "skipLibCheck": true, // instead of check of all files, check code I wrote in app
+    "esModuleInterop": true, // true allows import CommonJS packages as a es2015
+    "allowSyntheticDefaultImports": true, // true allows import React from 'react' instead import * as React from 'react'
+    "forceConsistentCasingInFileNames": true, // true - register of file names is important in imports
+    "noFallthroughCasesInSwitch": true, // check switch for break or return
+    "noUnusedLocals": true, // doesnt allow unused variables
+    "noUnusedParameters": true, //doesnt allow unused parameters in functions
+    "resolveJsonModule": true, // true allows imports of .json files
+    "jsx": "preserve", // turn on .jsx support
+    "alwaysStrict": true, //strict mode
+    "noImplicitAny": true, // doesnt allow type any
+    "strictFunctionTypes": true // check function types strictly
+  },
+  "include": ["src"] // files for compile
+}
