@@ -1,4 +1,5 @@
 {
+  "extends": "./tsconfig.paths.json",
   "compilerOptions": {
     "target": "es2019", // version of ECMAScript the code will be compiled into
     "module": "es2015", // module system import/export
@@ -19,6 +20,6 @@
     "noImplicitAny": true, // doesnt allow type any
     "strictFunctionTypes": true // check function types strictly
   },
-  "include": ["src"], // files for compile
+  "include": ["src", "index.d.ts"], // files for compile
   "exclude": ["node_modules"] // files to avoid
 }
