@@ -3,7 +3,8 @@
     "baseUrl": ".",
     "paths": {
       "@common/*": ["src/components/common/*"],
-      "@theme/*": ["src/theme/*"]
+      "@theme/*": ["src/theme/*"],
+      "@constants/*": ["src/constants/*"]
     }
   }
 }
