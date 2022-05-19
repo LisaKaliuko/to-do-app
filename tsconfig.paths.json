@@ -4,7 +4,10 @@
     "paths": {
       "@common/*": ["src/components/common/*"],
       "@theme/*": ["src/theme/*"],
-      "@constants/*": ["src/constants/*"]
+      "@constants/*": ["src/constants/*"],
+      "@pages/*": ["src/components/pages/*"],
+      "@images/*": ["src/images/*"],
+      "@router/*": ["src/components/router/*"]
     }
   }
 }
