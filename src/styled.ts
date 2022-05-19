@@ -15,7 +15,6 @@ export const Header = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  backgroundColor: 'rgba(255, 255, 255, 0.8)',
 });
 
 export const LogoContainer = styled('div')({

@@ -1,12 +1,7 @@
 import styled from '@emotion/styled';
 import { PieChart } from 'react-minimal-pie-chart';
-import { palette } from '@theme/index';
 
 export const Container = styled('div')({
-  backgroundColor: palette.$backgroundMain,
-});
-
-export const DiagramsContainer = styled('div')({
   width: '80%',
   margin: 'auto',
   display: 'flex',

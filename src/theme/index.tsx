@@ -2,6 +2,7 @@ export const globalStyles = {
   body: {
     margin: '0px',
     fontFamily: 'Verdana, sans-serif',
+    backgroundColor: '#e2e2e2',
   },
 };
 
