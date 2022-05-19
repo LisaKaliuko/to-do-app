@@ -11,4 +11,5 @@ export const palette = {
   $backgroundMain: '#e2e2e2',
   $backgroundSecondary: '#d7e1ee',
   $captionText: '#808080',
+  $linkHower: '#1976d2',
 };
