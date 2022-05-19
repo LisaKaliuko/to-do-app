@@ -7,7 +7,7 @@ export const ScaledSlider = styled(Slider)((props: Props) => ({
   '&.MuiSlider-root': {
     height: '20px',
     minWidth: '300px',
-    color: props.scaleColor,
+    color: props.coloring,
     cursor: 'auto',
   },
 

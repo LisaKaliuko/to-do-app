@@ -1,5 +1,5 @@
 export interface Props {
-  scaleColor: string;
+  coloring: string;
   value: number;
   name?: string;
 }

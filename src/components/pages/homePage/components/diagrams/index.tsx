@@ -21,7 +21,7 @@ const Diagrams: React.FC = (): JSX.Element => {
         <Title>Scale Diagram</Title>
         <Text>Eiusmod esse do consequat ad dolor magna reprehenderit.</Text>
         {scaleDiagram.map(({ color, value, name }) => (
-          <ScaledDiagram scaleColor={color} value={value} name={name} />
+          <ScaledDiagram coloring={color} value={value} name={name} key={name} />
         ))}
       </DiagramContainer>
       <DiagramContainer>

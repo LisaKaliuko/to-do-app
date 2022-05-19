@@ -2,7 +2,7 @@ import React from 'react';
 import { Props } from './types';
 import { ScaledSlider, Text } from './styled';
 
-const ScaledDiagram: React.FC<Props> = ({ scaleColor, value, name }): JSX.Element => {
+const ScaledDiagram: React.FC<Props> = ({ coloring, value, name }): JSX.Element => {
   return (
     <>
       <ScaledSlider
@@ -12,7 +12,7 @@ const ScaledDiagram: React.FC<Props> = ({ scaleColor, value, name }): JSX.Elemen
         marks={true}
         value={value}
         valueLabelDisplay="off"
-        scaleColor={scaleColor}
+        coloring={coloring}
       />
       <Text>{name}</Text>
     </>
