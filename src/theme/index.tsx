@@ -7,6 +7,7 @@ export const globalStyles = {
 
 export const palette = {
   $blackMain: '#000000',
-  $whiteMain: '#ffffff',
+  $backgroundMain: '#e2e2e2',
+  $backgroundSecondary: '#d7e1ee',
   $captionText: '#808080',
 };
