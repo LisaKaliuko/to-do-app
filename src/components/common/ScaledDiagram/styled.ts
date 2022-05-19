@@ -24,7 +24,7 @@ export const ScaledSlider = styled(Slider)((props: Props) => ({
   '& .MuiSlider-mark': {
     height: '22px',
     width: '3px',
-    backgroundColor: `${palette.$whiteMain}`,
+    backgroundColor: `${palette.$backgroundMain}`,
     opacity: 1,
   },
 
