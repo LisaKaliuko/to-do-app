@@ -27,6 +27,7 @@ const Header: React.FC = (): JSX.Element => {
         <Link to="about">About us</Link>
         <Link to="blog">Blog</Link>
         <Link to="opportunities">Opportunities</Link>
+        <Link to="calendar">Calendar</Link>
       </div>
       <div>
         <Link to="#" onClick={handleDialogOpen('login')}>

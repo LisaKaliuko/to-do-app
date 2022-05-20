@@ -8,6 +8,7 @@ export const Container = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
+  borderBottom: `2px solid ${palette.$captionText}`,
 });
 
 export const LogoContainer = styled('div')({
