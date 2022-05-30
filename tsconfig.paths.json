@@ -8,7 +8,9 @@
       "@constants/*": ["src/constants/*"],
       "@pages/*": ["src/components/pages/*"],
       "@images/*": ["src/images/*"],
-      "@router/*": ["src/components/router/*"]
+      "@router/*": ["src/components/router/*"],
+      "@stores/*": ["src/mobx/stores/*"],
+      "@hooks/*": ["src/hooks/*"]
     }
   }
 }
