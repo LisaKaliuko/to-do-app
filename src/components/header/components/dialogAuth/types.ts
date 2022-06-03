@@ -3,3 +3,8 @@ export interface Props {
   handleDialogClose: () => void;
   dialogType: string;
 }
+
+export interface Error {
+  type: string;
+  message?: string;
+}

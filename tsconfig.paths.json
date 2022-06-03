@@ -10,7 +10,8 @@
       "@images/*": ["src/images/*"],
       "@router/*": ["src/components/router/*"],
       "@stores/*": ["src/mobx/stores/*"],
-      "@hooks/*": ["src/hooks/*"]
+      "@hooks/*": ["src/hooks/*"],
+      "@types/*": ["src/types/*"]
     }
   }
 }
