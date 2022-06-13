@@ -4,7 +4,7 @@ import { UserCreds } from '@customTypes/index';
 
 export class UserStore {
   public addUser = (props: UserCreds) => {
-    const isFieldsFill = !!(props && props.name && props.email && props.password);
+    const isFieldsFill = !!(props && props.email && props.password);
     const isUserExist = userList.find((user) => user.email === props?.email);
     const isEmailCorrect = props?.email ? props.email.includes('@') : null;
     const isPasswordCorrect = props?.password
@@ -43,6 +43,38 @@ export class UserStore {
           email: props.email,
           password: props.password,
         });
+        return {
+          type: actionTypes.success,
+        };
+      }
+    }
+  };
+
+  public loginUser = (props: UserCreds) => {
+    const isFieldsFill = !!(props && props.email && props.password);
+    const isUserExist = userList.find((user) => user.email === props?.email);
+    const isPasswordCorrect = userList.find((user) => user.password === props?.password);
+
+    switch (true) {
+      case !isFieldsFill: {
+        return {
+          type: actionTypes.error,
+          message: authErrors.emptyRequireFields,
+        };
+      }
+      case !isUserExist: {
+        return {
+          type: actionTypes.error,
+          message: authErrors.userDoenstExist,
+        };
+      }
+      case !isPasswordCorrect: {
+        return {
+          type: actionTypes.error,
+          message: authErrors.wrongPassword,
+        };
+      }
+      default: {
         return {
           type: actionTypes.success,
         };

@@ -25,16 +25,13 @@ const DialogAuth: React.FC<Props> = observer(({ isOpen, handleDialogClose, dialo
     setAuthError(null);
   };
 
-  const handleLogin = () => {
-    console.log('login');
-  };
-
-  const handleRegister = () => {
-    const response = userStore.addUser(userCreds);
+  const handleClick = () => {
+    const response =
+      dialogType === 'login' ? userStore.loginUser(userCreds) : userStore.addUser(userCreds);
 
     response.type === actionTypes.error
       ? setAuthError(response)
-      : (setAuthError(null), handleDialogClose());
+      : (handleDialogClose(), setAuthError(null), setUserCreds(null));
   };
 
   return (
@@ -50,8 +47,6 @@ const DialogAuth: React.FC<Props> = observer(({ isOpen, handleDialogClose, dialo
               variant="standard"
               value={userCreds?.name ? userCreds.name : ''}
               fullWidth
-              required
-              error={!!(authError && !userCreds?.name)}
               onChange={handleChange}
             />
             <Input
@@ -88,7 +83,7 @@ const DialogAuth: React.FC<Props> = observer(({ isOpen, handleDialogClose, dialo
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={dialogType === 'login' ? handleLogin : handleRegister}>Ok</Button>
+        <Button onClick={handleClick}>Ok</Button>
         <Button onClick={handleClose}>Cancel</Button>
       </DialogActions>
     </Dialog>

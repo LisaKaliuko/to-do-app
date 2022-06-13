@@ -1,5 +1,5 @@
 export interface UserCreds {
-  name: string;
+  name?: string;
   age?: string;
   email: string;
   password: string;
