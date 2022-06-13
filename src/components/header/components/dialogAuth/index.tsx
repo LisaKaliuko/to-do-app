@@ -3,13 +3,13 @@ import { DialogTitle, DialogContent, DialogActions, Button, Dialog } from '@mui/
 import { observer } from 'mobx-react-lite';
 import { useStore } from '@hooks/useStore';
 import { actionTypes } from '@constants/AuthErrors';
-import { UserCreds } from '@types/index';
+import { UserCreds } from '@customTypes/index';
 import { Props, Error } from './types';
 import { Input, ErrorMessage } from './styled';
 
 const DialogAuth: React.FC<Props> = observer(({ isOpen, handleDialogClose, dialogType }: Props) => {
   const { userStore } = useStore();
-  const [userCreds, setUserCreds] = useState<UserCreds | null>(null);
+  const [userCreds, setUserCreds] = useState<UserCreds>(null);
   const [authError, setAuthError] = useState<Error>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,6 +22,7 @@ const DialogAuth: React.FC<Props> = observer(({ isOpen, handleDialogClose, dialo
   const handleClose = () => {
     handleDialogClose();
     setUserCreds(null);
+    setAuthError(null);
   };
 
   const handleLogin = () => {
@@ -30,6 +31,7 @@ const DialogAuth: React.FC<Props> = observer(({ isOpen, handleDialogClose, dialo
 
   const handleRegister = () => {
     const response = userStore.addUser(userCreds);
+
     response.type === actionTypes.error
       ? setAuthError(response)
       : (setAuthError(null), handleDialogClose());
@@ -49,6 +51,7 @@ const DialogAuth: React.FC<Props> = observer(({ isOpen, handleDialogClose, dialo
               value={userCreds?.name ? userCreds.name : ''}
               fullWidth
               required
+              error={!!(authError && !userCreds?.name)}
               onChange={handleChange}
             />
             <Input
@@ -69,6 +72,7 @@ const DialogAuth: React.FC<Props> = observer(({ isOpen, handleDialogClose, dialo
           value={userCreds?.email ? userCreds.email : ''}
           fullWidth
           required
+          error={!!(authError && !userCreds?.email)}
           onChange={handleChange}
         />
         <Input
@@ -79,6 +83,7 @@ const DialogAuth: React.FC<Props> = observer(({ isOpen, handleDialogClose, dialo
           value={userCreds?.password ? userCreds.password : ''}
           fullWidth
           required
+          error={!!(authError && !userCreds?.password)}
           onChange={handleChange}
         />
       </DialogContent>

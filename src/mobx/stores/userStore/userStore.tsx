@@ -1,15 +1,18 @@
 import { userList } from '../../../mokFirebase/auth';
 import { actionTypes, authErrors } from '@constants/AuthErrors';
-import { UserCreds } from '@types/index';
+import { UserCreds } from '@customTypes/index';
 
 export class UserStore {
   public addUser = (props: UserCreds) => {
-    const isUserExist = userList.find((user) => user.email === props.email);
+    const isFieldsFill = !!(props && props.name && props.email && props.password);
+    const isUserExist = userList.find((user) => user.email === props?.email);
+    const isEmailCorrect = props?.email ? props.email.includes('@') : null;
+    const isPasswordCorrect = props?.password
+      ? props.password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/)
+      : null;
 
     switch (true) {
-      case !props.name:
-      case !props.email:
-      case !props.password: {
+      case !isFieldsFill: {
         return {
           type: actionTypes.error,
           message: authErrors.emptyRequireFields,
@@ -19,6 +22,18 @@ export class UserStore {
         return {
           type: actionTypes.error,
           message: authErrors.repeatedEmail,
+        };
+      }
+      case !isEmailCorrect: {
+        return {
+          type: actionTypes.error,
+          message: authErrors.notCorrectEmail,
+        };
+      }
+      case !isPasswordCorrect: {
+        return {
+          type: actionTypes.error,
+          message: authErrors.notCorrectPassword,
         };
       }
       default: {

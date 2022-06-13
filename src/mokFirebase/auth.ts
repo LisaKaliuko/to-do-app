@@ -1,4 +1,4 @@
-import { UserCreds } from '@types/index';
+import { UserCreds } from '@customTypes/index';
 
 export const userList: Array<UserCreds> = [
   {

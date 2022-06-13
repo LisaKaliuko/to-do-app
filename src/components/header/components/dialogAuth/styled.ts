@@ -9,4 +9,6 @@ export const Input = styled(TextField)({
 export const ErrorMessage = styled('p')({
   color: palette.$error,
   marginTop: '0px',
+  marginBottom: '0px',
+  textAlign: 'center',
 });
