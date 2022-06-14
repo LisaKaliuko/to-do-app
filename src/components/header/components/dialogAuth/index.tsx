@@ -17,6 +17,7 @@ const DialogAuth: React.FC<Props> = observer(({ isOpen, handleDialogClose, dialo
       ...prevValue,
       [e.target.id]: e.target.value,
     }));
+    setAuthError(null);
   };
 
   const handleClose = () => {
