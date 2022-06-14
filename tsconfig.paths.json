@@ -11,7 +11,8 @@
       "@router/*": ["src/components/router/*"],
       "@stores/*": ["src/mobx/stores/*"],
       "@hooks/*": ["src/hooks/*"],
-      "@customTypes/*": ["src/types/*"]
+      "@customTypes/*": ["src/types/*"],
+      "@fb/*": ["src/firebase/*"]
     }
   }
 }

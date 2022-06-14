@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { DialogTitle, DialogContent, DialogActions, Button, Dialog } from '@mui/material';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '@hooks/useStore';
-import { actionTypes } from '@constants/AuthErrors';
+import { actionTypes, authErrors } from '@constants/AuthErrors';
 import { UserCreds } from '@customTypes/index';
 import { Props, Error } from './types';
 import { Input, ErrorMessage } from './styled';
@@ -26,12 +26,29 @@ const DialogAuth: React.FC<Props> = observer(({ isOpen, handleDialogClose, dialo
   };
 
   const handleClick = () => {
+    const isFieldsFill = !!(userCreds && userCreds.email && userCreds.password);
+    const isPasswordCorrect = userCreds?.password
+      ? userCreds.password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/)
+      : null;
+
+    if (!isFieldsFill) {
+      setAuthError({ type: actionTypes.error, message: authErrors.emptyRequireFields });
+      return;
+    }
+
+    if (!isPasswordCorrect) {
+      setAuthError({ type: actionTypes.error, message: authErrors.notCorrectPassword });
+      return;
+    }
+
     const response =
       dialogType === 'login' ? userStore.loginUser(userCreds) : userStore.addUser(userCreds);
 
-    response.type === actionTypes.error
-      ? setAuthError(response)
-      : (handleDialogClose(), setAuthError(null), setUserCreds(null));
+    response.then((resp) => {
+      resp.type === actionTypes.error
+        ? setAuthError(resp)
+        : (handleDialogClose(), setAuthError(null), setUserCreds(null));
+    });
   };
 
   return (
